@@ -899,6 +899,27 @@ bool WebPage::render(const QString &fileName, const QVariantMap &option)
         QImage rawPageRendering = renderImage();
         retval = exportGif(rawPageRendering, outFileName);
     }
+    else if ( format == "raw" ) {
+      QImage rawPageRendering = renderImage();
+      FILE *fout = fopen(outFileName.toLocal8Bit().data(), "w");
+      if (fout == NULL) {
+        return false;
+      }
+      int length = rawPageRendering.byteCount();
+      const uchar *buf = rawPageRendering.bits();
+      while (length > 0) {
+        size_t wrote = fwrite(buf, 1, length, fout);
+        if (wrote == 0) {
+          fclose(fout);
+          return false;
+        }
+        length -= wrote;
+        buf += wrote;
+      }
+      int res = fclose(fout);
+      if (res != 0) return false;
+      return true;
+    }
     else{
         QImage rawPageRendering = renderImage();
 
