@@ -899,6 +899,10 @@ bool WebPage::render(const QString &fileName, const QVariantMap &option)
         QImage rawPageRendering = renderImage();
         retval = exportGif(rawPageRendering, outFileName);
     }
+    else if ( format == "render-only" ) {
+      QImage rawPageRendering = renderImage();
+      return true;
+    }
     else if ( format == "raw" ) {
       QImage rawPageRendering = renderImage();
       FILE *fout = fopen(outFileName.toLocal8Bit().data(), "w");
