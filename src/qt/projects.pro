@@ -5,6 +5,9 @@
 CONFIG += ordered
 TEMPLATE = subdirs
 
+QMAKE_CXXFLAGS += -g -pg
+QMAKE_LFLAGS += -pg
+
 cross_compile: CONFIG += nostrip
 
 isEmpty(QT_BUILD_PARTS) { #defaults

@@ -5,6 +5,9 @@ DEFINES   += QT_BUILD_CORE_LIB QT_NO_USING_NAMESPACE
 win32-msvc*|win32-icc:QMAKE_LFLAGS += /BASE:0x67000000
 irix-cc*:QMAKE_CXXFLAGS += -no_prelink -ptused
 
+QMAKE_CXXFLAGS += -g -pg
+QMAKE_LFLAGS += -pg
+
 include(../qbase.pri)
 include(animation/animation.pri)
 include(arch/arch.pri)

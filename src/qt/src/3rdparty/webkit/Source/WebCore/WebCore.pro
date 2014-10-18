@@ -2,6 +2,9 @@
 CONFIG += building-libs
 CONFIG += depend_includepath
 
+QMAKE_CXXFLAGS += -g -pg
+QMAKE_LFLAGS += -pg
+
 isEmpty(OUTPUT_DIR): OUTPUT_DIR = ..
 include($$PWD/../WebKit.pri)
 include($$PWD/WebCore.pri)

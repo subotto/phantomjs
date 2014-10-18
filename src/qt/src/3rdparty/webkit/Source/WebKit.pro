@@ -2,6 +2,9 @@ TEMPLATE = subdirs
 CONFIG += ordered
 DEFINES += Q_NODLL Q_DECL_IMPORT QT_STATIC_BUILD STATIC
 
+QMAKE_CXXFLAGS += -g -pg
+QMAKE_LFLAGS += -pg
+
 include(WebKit.pri)
 
 webkit2:exists($$PWD/WebKit2/WebKit2.pro): SUBDIRS += WebKit2/WebKit2.pro

@@ -5,6 +5,9 @@ DEFINES   += QT_BUILD_GUI_LIB QT_NO_USING_NAMESPACE
 win32-msvc*|win32-icc:QMAKE_LFLAGS += /BASE:0x65000000
 irix-cc*:QMAKE_CXXFLAGS += -no_prelink -ptused
 
+QMAKE_CXXFLAGS += -g -pg
+QMAKE_LFLAGS += -pg
+
 !win32:!embedded:!qpa:!mac:!symbian:CONFIG      += x11
 
 unix|win32-g++*:QMAKE_PKGCONFIG_REQUIRES = QtCore

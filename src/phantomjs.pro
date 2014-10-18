@@ -4,6 +4,7 @@ QT += network webkit
 CONFIG += console
 
 QMAKE_CXXFLAGS += -g -pg
+QMAKE_LFLAGS += -pg
 
 DESTDIR = ../bin
 

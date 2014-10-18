@@ -1,5 +1,8 @@
 TEMPLATE = subdirs
 
+QMAKE_CXXFLAGS += -g -pg
+QMAKE_LFLAGS += -pg
+
 # this order is important
 unset(SRC_SUBDIRS)
 win32:SRC_SUBDIRS += src_winmain
