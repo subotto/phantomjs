@@ -3,6 +3,8 @@ TARGET = phantomjs
 QT += network webkit
 CONFIG += console
 
+QMAKE_CXXFLAGS += -g -pg
+
 DESTDIR = ../bin
 
 RESOURCES = phantomjs.qrc \
